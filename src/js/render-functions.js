@@ -6,12 +6,11 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { refs } from '../main';
 import { getImages } from './pixabay-api';
 
-getImages().then(data => {
-    const markup = imagesTemplate(data);
-    refs.gallery.innerHtml = markup;
-});
-function imageTemplate(image) {
-    return`<li class="gallery-item">
+
+export function imageTemplate(imageObject) {
+    const markup = imageObject
+    .map(image => {
+        return `<li class="gallery-item">
         <a class="gallery-link"
         href="${image.largeImageURL}">
         <image class="gallery-image"
@@ -25,11 +24,22 @@ function imageTemplate(image) {
         <p> <strong>Downloads:</strong> ${image.downloads}</p>
         </div>
         </li>`;
+    
+    })
+.join('');
+    refs.gallery.innerHtml = markup;
+    const lightbox = new SimpleLightbox('.gallyry a', {
+        captions: true,
+        captionsData: 'alt',
+        captionsDelay: 250,
+
+    })
+        .refresh();
 }
-
-
-function imagesTemplate(images) { 
-    return images.map(imageTemplate).join('');
+export function showLoader() {
+    refs.loader.classList.remove('.hidden');
 }
-
+export function hideLoader() {
+    refs.loader.classList.add('.hidden');
+}
 
