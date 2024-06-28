@@ -4,6 +4,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from '../main';
+import { getImages } from './js/pixabay-api';
 
 getImages().then(data => {
     const markup = imagesTemplate(data);
