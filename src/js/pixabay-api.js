@@ -11,7 +11,7 @@ export async function getImages(inputValue) {
         safesearch: true,
     });
     const url = `${BUS_URL}${END_POINT}?{params}`;
-    return fetch(url)
+    return fetch(url, {params})
         .then(res => res.json())
         .catch(err => {
             iziToast.error({
