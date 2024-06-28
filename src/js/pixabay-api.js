@@ -1,4 +1,6 @@
-export function getImages(inputValue) {
+import iziToast from "izitoast"
+import "izitoast/dist/css/iziToast.min.css"
+export async function getImages(inputValue) {
     const BUS_URL = 'https://pixabay.com';
     const END_POINT = '/api';
     const params = new URLSearchParams({
