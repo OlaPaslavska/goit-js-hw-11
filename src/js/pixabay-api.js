@@ -1,5 +1,7 @@
 import iziToast from "izitoast"
 import "izitoast/dist/css/iziToast.min.css"
+
+
 export async function getImages(inputValue) {
     const BUS_URL = 'https://pixabay.com';
     const END_POINT = '/api';
@@ -11,7 +13,7 @@ export async function getImages(inputValue) {
         safesearch: true,
     });
     const url = `${BUS_URL}${END_POINT}?{params}`;
-    return fetch(url, {params})
+    return fetch(url)
         .then(res => res.json())
         .catch(err => {
             iziToast.error({

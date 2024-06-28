@@ -4,7 +4,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from '../main';
-import { getImages } from './pixabay-api';
+
 
 
 export function imageTemplate(imageObject) {
