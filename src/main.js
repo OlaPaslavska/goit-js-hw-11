@@ -70,3 +70,20 @@ refs.form.addEventListener('submit', e => {
         });
     });
 });
+refs.gallery.innerHtml = markup;
+
+    const lightbox = new SimpleLightbox('.gallery a', {
+        captions: true,
+        captionsData: 'alt',
+        captionsDelay: 250,
+
+    })
+        .refresh();
+    
+
+export function showLoader() {
+    refs.loader.classList.remove('hidden');
+}
+export function hideLoader() {
+    refs.loader.classList.add('hidden');
+}

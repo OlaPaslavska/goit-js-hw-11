@@ -3,15 +3,12 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import { refs } from '../main';
-
 // imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
 
 export function imagesTemplate(imagesObj) {
-    const markup = imagesObj
-        // Метод map використовується для ітерації по кожному об'єкту image в масиві imageObject
-    .map(image => {
-        return `<li class="gallery-item">
+    // Метод map використовується для ітерації по кожному об'єкту image в масиві imageObject
+    const markup = imagesObj.map(image => {
+            return `<li class="gallery-item">
         <a class="gallery-link"
         href="${image.largeImageURL}">
         <image class="gallery-image"
@@ -26,22 +23,9 @@ export function imagesTemplate(imagesObj) {
         </div>
         </li>`;
     
-    })
-.join('');
-    refs.gallery.innerHtml = markup;
-
-    const lightbox = new SimpleLightbox('.gallery a', {
-        captions: true,
-        captionsData: 'alt',
-        captionsDelay: 250,
-
-    })
-        .refresh();
+        })
+        .join('');
+    return;
 }
-export function showLoader() {
-    refs.loader.classList.remove('hidden');
-}
-export function hideLoader() {
-    refs.loader.classList.add('hidden');
-}
+    
 
