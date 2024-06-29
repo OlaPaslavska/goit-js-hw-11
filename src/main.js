@@ -3,7 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { getImages } from './js/pixabay-api';
-import { imagesTemplate} from './js/render-functions';
+import { imagesTemplate, showLoader, showLoader, formReset} from './js/render-functions';
 
 export const refs = {
     form: document.querySelector('.form'),
@@ -16,7 +16,7 @@ refs.form.addEventListener('submit', e => {
     // Зупиняє стандартну поведінку форми, щоб сторінка не перезавантажувалась
     e.preventDefault();
     // Отримує значення введеного тексту з поля форми
-    const inputValue = e.target.elements.text.value.trim();
+    const inputValue = refs.input.value.trim();
     // Перевіряє, чи введено значення
     if (inputValue === '') { 
         // Очищає вміст галереї
@@ -51,11 +51,11 @@ refs.form.addEventListener('submit', e => {
             });
             //  ховає завантажувач після завершення отримання зображень.
             hideLoader();
-            refs.form.reset();
+            formReset();
             return;
         }
         hideLoader();
-        refs.form.reset();
+        formReset();
         imagesTemplate(data.hits);
         })
         //  обробляється помилка під час отримання зображень з API, яка виводить повідомлення про помилку
@@ -73,18 +73,10 @@ refs.form.addEventListener('submit', e => {
 });
 // refs.gallery.innerHtml = markup;
 
-    const lightbox = new SimpleLightbox('.gallery a', {
-        captions: true,
-        captionsData: 'alt',
-        captionsDelay: 250,
-
-    })
-        lightbox.refresh();
-    
-
-function showLoader() {
-    refs.loader.classList.remove('hidden');
-}
-function hideLoader() {
-    refs.loader.classList.add('hidden');
-}
+ 
+// export function showLoader() {
+//     refs.loader.classList.remove('hidden');
+// }
+// export function hideLoader() {
+//     refs.loader.classList.add('hidden');
+// }

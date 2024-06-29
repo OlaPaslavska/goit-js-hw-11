@@ -3,6 +3,13 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+import { refs } from '../main';
+ const lightbox = new SimpleLightbox('.gallery li', {
+        captions: true,
+        captionsData: 'alt',
+        captionsDelay: 250,
+
+    })
 // imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
 
 export function imagesTemplate(imagesObj) {
@@ -10,7 +17,10 @@ export function imagesTemplate(imagesObj) {
             return `<li class="gallery-item">
         <a class="gallery-link"
         href="${image.largeImageURL}">
-        <image class="gallery-image"
+        <image 
+        width=360;
+        height=200;
+         class="gallery-image"
         src="${image.webformatURL}"
         alt="${image.tags}"/>
         </a>
@@ -24,8 +34,17 @@ export function imagesTemplate(imagesObj) {
     
         })
         .join('');
-  
-    return markup;
+    refs.gallery.innerHtml = markup;
+    lightbox.refresh();
+}
+export function showLoader() {
+    refs.loader.classList.remove('hidden');
+}
+export function hideLoader() {
+    refs.loader.classList.add('hidden');
+}
+export function formReset() {
+    refs.formSearch.reset();
 }
     
 

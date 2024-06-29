@@ -14,7 +14,7 @@ export  function getImages(inputValue) {
     });
     const url = `${BASE_URL}${END_POINT}?${params}`;
     return fetch(url)
-        .then(res => res.json())
+        .then(data => data.json())
         .catch(err => {
             iziToast.error({
                 title: 'Error',
