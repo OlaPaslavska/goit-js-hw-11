@@ -1,7 +1,8 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getImages } from './js/pixabay-api';
 import { imagesTemplate} from './js/render-functions';
 
@@ -11,7 +12,7 @@ import { imagesTemplate} from './js/render-functions';
         captionsDelay: 250,
 
  })
-    lightbox.refresh();
+   
 export const refs = {
     form: document.querySelector('.form'),
     input: document.querySelector('.input'),
@@ -64,8 +65,11 @@ refs.form.addEventListener('submit', e => {
         }
         hideLoader();
          refs.form.reset();
-        imagesTemplate(data.hits);
+            imagesTemplate(data.hits);
+            
+             lightbox.refresh();
         })
+         
         //  обробляється помилка під час отримання зображень з API, яка виводить повідомлення про помилку
     .catch(err => {
         iziToast.error({
