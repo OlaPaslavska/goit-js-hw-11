@@ -5,10 +5,11 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from '../main';
 
-
+// imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
 
 export function imageTemplate(imageObject) {
     const markup = imageObject
+        // Метод map використовується для ітерації по кожному об'єкту image в масиві imageObject
     .map(image => {
         return `<li class="gallery-item">
         <a class="gallery-link"

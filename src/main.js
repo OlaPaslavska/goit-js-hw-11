@@ -12,9 +12,13 @@ export const refs = {
     loader: document.querySelector('.loader'),
 };
 refs.form.addEventListener('submit', e => {
+    // Зупиняє стандартну поведінку форми, щоб сторінка не перезавантажувалась
     e.preventDefault();
+    // Отримує значення введеного тексту з поля форми
     const inputValue = e.target.elements.text.value.trim();
+    // Перевіряє, чи введено значення
     if (inputValue === '') { 
+        // Очищає вміст галереї
         refs.gallery.innerHTML = ' ';
         iziToast.warning({
             title: 'Warning',
@@ -24,13 +28,17 @@ refs.form.addEventListener('submit', e => {
             backgroundColor: '#ef4040',
             position:'topRight',
         });
-        return;
+        // Завершує обробку події
+           return;
     }
-
+        // Показує завантажувач
     showLoader();
+        // Очищає вміст галереї перед завантаженням нових зображень
     refs.gallery.innerHTML = ' ';
+     // Викликаємо функцію, яка отримує зображення з API
     getImages(inputValue)
-    .then(data => {
+        .then(data => {
+        // Перевіряємо, чи є отримані зображення
         if(data.hits.length === 0) {
             iziToast.error({
                 message: "Sorry, there are no images matching your search query. Please try again!",
@@ -40,6 +48,7 @@ refs.form.addEventListener('submit', e => {
                 progressBarColor: '#B51B1B',
                 position:'topRight',
             });
+            //  ховає завантажувач після завершення отримання зображень.
             hideLoader();
             refs.form.reset();
             return;
@@ -47,7 +56,8 @@ refs.form.addEventListener('submit', e => {
         hideLoader();
         refs.form.reset();
         imagesTemplate(data.hits);
-    })
+        })
+        //  обробляється помилка під час отримання зображень з API, яка виводить повідомлення про помилку
     .catch(err => {
         iziToast.error({
             title: 'Error',
