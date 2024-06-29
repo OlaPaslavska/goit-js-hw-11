@@ -71,7 +71,7 @@ refs.form.addEventListener('submit', e => {
         });
     });
 });
-refs.gallery.innerHtml = markup;
+// refs.gallery.innerHtml = markup;
 
     const lightbox = new SimpleLightbox('.gallery a', {
         captions: true,
