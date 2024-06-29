@@ -3,8 +3,15 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { getImages } from './js/pixabay-api';
-import { imagesTemplate, showLoader, showLoader, formReset} from './js/render-functions';
+import { imagesTemplate} from './js/render-functions';
 
+ const lightbox = new SimpleLightbox('.gallery li', {
+        captions: true,
+        captionsData: 'alt',
+        captionsDelay: 250,
+
+ })
+    lightbox.refresh();
 export const refs = {
     form: document.querySelector('.form'),
     input: document.querySelector('.input'),
@@ -12,6 +19,7 @@ export const refs = {
     gallery: document.querySelector('.gallery'),
     loader: document.querySelector('.loader'),
 };
+
 refs.form.addEventListener('submit', e => {
     // Зупиняє стандартну поведінку форми, щоб сторінка не перезавантажувалась
     e.preventDefault();
@@ -71,12 +79,15 @@ refs.form.addEventListener('submit', e => {
         });
     });
 });
-// refs.gallery.innerHtml = markup;
+refs.gallery.innerHtml = markup;
 
  
-// export function showLoader() {
-//     refs.loader.classList.remove('hidden');
-// }
-// export function hideLoader() {
-//     refs.loader.classList.add('hidden');
-// }
+export function showLoader() {
+    refs.loader.classList.remove('hidden');
+}
+export function hideLoader() {
+    refs.loader.classList.add('hidden');
+}
+export function formReset() {
+    refs.formSearch.reset();
+}

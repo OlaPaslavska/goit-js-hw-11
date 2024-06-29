@@ -3,13 +3,13 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import { refs } from '../main';
- const lightbox = new SimpleLightbox('.gallery li', {
-        captions: true,
-        captionsData: 'alt',
-        captionsDelay: 250,
+// import { refs } from '../main';
+//  const lightbox = new SimpleLightbox('.gallery li', {
+//         captions: true,
+//         captionsData: 'alt',
+//         captionsDelay: 250,
 
-    })
+//     })
 // imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
 
 export function imagesTemplate(imagesObj) {
@@ -34,17 +34,17 @@ export function imagesTemplate(imagesObj) {
     
         })
         .join('');
-    refs.gallery.innerHtml = markup;
-    lightbox.refresh();
+    // refs.gallery.innerHtml = markup;
+    // lightbox.refresh();
 }
-export function showLoader() {
-    refs.loader.classList.remove('hidden');
-}
-export function hideLoader() {
-    refs.loader.classList.add('hidden');
-}
-export function formReset() {
-    refs.formSearch.reset();
-}
+// export function showLoader() {
+//     refs.loader.classList.remove('hidden');
+// }
+// export function hideLoader() {
+//     refs.loader.classList.add('hidden');
+// }
+// export function formReset() {
+//     refs.formSearch.reset();
+// }
     
 
