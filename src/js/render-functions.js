@@ -11,7 +11,13 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 //     })
 // imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
-
+export const refs = {
+    form: document.querySelector('.form'),
+    input: document.querySelector('.input'),
+    button: document.querySelector('button'),
+    gallery: document.querySelector('.gallery'),
+    loader: document.querySelector('.loader'),
+};
 export function imagesTemplate(imagesObj) {
     const markup = imagesObj.map(image => {
             return `<li class="gallery-item">
@@ -34,9 +40,11 @@ export function imagesTemplate(imagesObj) {
     
         })
         .join('');
+    refs.gallery.innerHtml = markup;
     // refs.gallery.innerHtml = markup;
     // lightbox.refresh();
 }
+
 // export function showLoader() {
 //     refs.loader.classList.remove('hidden');
 // }

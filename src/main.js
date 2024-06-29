@@ -79,7 +79,7 @@ refs.form.addEventListener('submit', e => {
         });
     });
 });
-refs.gallery.innerHtml = markup;
+// refs.gallery.innerHtml = markup;
 
  
 export function showLoader() {
