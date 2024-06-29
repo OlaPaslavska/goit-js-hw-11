@@ -1,8 +1,9 @@
-
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { getImages } from './js/pixabay-api';
-import { showLoader,imagesTemplate, hideLoader } from './js/render-functions';
+import { imagesTemplate} from './js/render-functions';
 
 export const refs = {
     form: document.querySelector('.form'),
@@ -78,12 +79,12 @@ refs.gallery.innerHtml = markup;
         captionsDelay: 250,
 
     })
-        .refresh();
+        lightbox.refresh();
     
 
-export function showLoader() {
+function showLoader() {
     refs.loader.classList.remove('hidden');
 }
-export function hideLoader() {
+function hideLoader() {
     refs.loader.classList.add('hidden');
 }
