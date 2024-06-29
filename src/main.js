@@ -59,11 +59,11 @@ refs.form.addEventListener('submit', e => {
             });
             //  ховає завантажувач після завершення отримання зображень.
             hideLoader();
-            formReset();
+             refs.form.reset();
             return;
         }
         hideLoader();
-        formReset();
+         refs.form.reset();
         imagesTemplate(data.hits);
         })
         //  обробляється помилка під час отримання зображень з API, яка виводить повідомлення про помилку
@@ -88,6 +88,6 @@ export function showLoader() {
 export function hideLoader() {
     refs.loader.classList.add('hidden');
 }
-export function formReset() {
-    refs.formSearch.reset();
-}
+// export function formReset() {
+//     refs.formSearch.reset();
+// }
