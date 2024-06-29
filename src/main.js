@@ -61,7 +61,7 @@ refs.form.addEventListener('submit', e => {
     .catch(err => {
         iziToast.error({
             title: 'Error',
-            message: '${err}',
+            message: `${err}`,
             layout: 2,
             displayMode: 'once',
             backgroundColor: '#ef4040',
