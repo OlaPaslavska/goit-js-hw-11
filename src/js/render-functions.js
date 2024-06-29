@@ -24,8 +24,8 @@ export function imagesTemplate(imagesObj) {
         <a class="gallery-link"
         href="${image.largeImageURL}">
         <image 
-        width=360;
-        height=200;
+        width="360";
+        height="200";
          class="gallery-image"
         src="${image.webformatURL}"
         alt="${image.tags}"/>
@@ -40,7 +40,7 @@ export function imagesTemplate(imagesObj) {
     
         })
         .join('');
-    refs.gallery.innerHtml = markup;
+    refs.gallery.innerHTML = markup;
     // refs.gallery.innerHtml = markup;
     // lightbox.refresh();
 }

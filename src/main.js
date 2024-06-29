@@ -6,7 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getImages } from './js/pixabay-api';
 import { imagesTemplate} from './js/render-functions';
 
- const lightbox = new SimpleLightbox('.gallery li', {
+ const lightbox = new SimpleLightbox('.gallery a', {
         captions: true,
         captionsData: 'alt',
         captionsDelay: 250,
@@ -22,7 +22,7 @@ export const refs = {
 };
 
 refs.form.addEventListener('submit', e => {
-    // Зупиняє стандартну поведінку форми, щоб сторінка не перезавантажувалась
+    
     e.preventDefault();
     // Отримує значення введеного тексту з поля форми
     const inputValue = refs.input.value.trim();
