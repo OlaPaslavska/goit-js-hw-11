@@ -2,9 +2,9 @@ import iziToast from "izitoast"
 import "izitoast/dist/css/iziToast.min.css"
 
 
-export async function getImages(inputValue) {
-    const BUS_URL = 'https://pixabay.com';
-    const END_POINT = '/api';
+export  function getImages(inputValue) {
+    const BASE_URL = 'https://pixabay.com';
+    const END_POINT = '/api/';
     const params = new URLSearchParams({
         key: '44654317-b43c54b885daf7a418bb31fe3',
         q: inputValue,
@@ -12,7 +12,7 @@ export async function getImages(inputValue) {
         orientation: 'horizontal',
         safesearch: true,
     });
-    const url = `${BUS_URL}${END_POINT}?{params}`;
+    const url = `${BASE_URL}${END_POINT}?${params}`;
     return fetch(url)
         .then(res => res.json())
         .catch(err => {

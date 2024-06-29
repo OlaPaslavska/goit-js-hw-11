@@ -28,7 +28,8 @@ export function imageTemplate(imageObject) {
     })
 .join('');
     refs.gallery.innerHtml = markup;
-    const lightbox = new SimpleLightbox('.gallyry a', {
+
+    const lightbox = new SimpleLightbox('.gallery a', {
         captions: true,
         captionsData: 'alt',
         captionsDelay: 250,
@@ -37,9 +38,9 @@ export function imageTemplate(imageObject) {
         .refresh();
 }
 export function showLoader() {
-    refs.loader.classList.remove('.hidden');
+    refs.loader.classList.remove('hidden');
 }
 export function hideLoader() {
-    refs.loader.classList.add('.hidden');
+    refs.loader.classList.add('hidden');
 }
 
