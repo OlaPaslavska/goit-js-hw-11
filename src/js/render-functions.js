@@ -7,8 +7,8 @@ import { refs } from '../main';
 
 // imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
 
-export function imagesTemplate(imageObject) {
-    const markup = imageObject
+export function imagesTemplate(imagesObj) {
+    const markup = imagesObj
         // Метод map використовується для ітерації по кожному об'єкту image в масиві imageObject
     .map(image => {
         return `<li class="gallery-item">
