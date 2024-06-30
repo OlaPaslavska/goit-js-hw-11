@@ -39,7 +39,7 @@ refs.form.addEventListener('submit', e => {
             position:'topRight',
         });
         // Завершує обробку події
-        refs.form.reset();
+        // refs.form.reset();
            return;
     }
        // Очищає вміст галереї перед завантаженням нових зображень
