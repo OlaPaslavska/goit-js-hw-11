@@ -65,10 +65,10 @@ refs.form.addEventListener('submit', e => {
             return;
         }
             hideLoader();
-            imagesTemplate(data.hits);
-         
-            lightbox.refresh();
+           
             refs.form.reset();
+             imagesTemplate(data.hits);
+            lightbox.refresh();
         })
          
         //  обробляється помилка під час отримання зображень з API, яка виводить повідомлення про помилку
