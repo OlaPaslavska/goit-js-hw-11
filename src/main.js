@@ -60,14 +60,13 @@ refs.form.addEventListener('submit', e => {
             });
             //  ховає завантажувач після завершення отримання зображень.
             hideLoader();
-             refs.form.reset();
             return;
         }
-        hideLoader();
-         refs.form.reset();
+            hideLoader();
             imagesTemplate(data.hits);
-            
-             lightbox.refresh();
+         
+            lightbox.refresh();
+            refs.form.reset();
         })
          
         //  обробляється помилка під час отримання зображень з API, яка виводить повідомлення про помилку
