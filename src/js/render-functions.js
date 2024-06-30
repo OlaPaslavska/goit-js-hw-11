@@ -3,13 +3,7 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// import { refs } from '../main';
-//  const lightbox = new SimpleLightbox('.gallery li', {
-//         captions: true,
-//         captionsData: 'alt',
-//         captionsDelay: 250,
 
-//     })
 // imageObject - це масив об'єктів з властивостями зображень, які отримані з API.
 export const refs = {
     form: document.querySelector('.form'),
