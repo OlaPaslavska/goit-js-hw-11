@@ -87,10 +87,10 @@ refs.form.addEventListener('submit', e => {
 // refs.gallery.innerHtml = markup;
 
  
-export function showLoader() {
+function showLoader() {
     refs.loader.classList.remove('hidden');
 }
-export function hideLoader() {
+function hideLoader() {
     refs.loader.classList.add('hidden');
 }
 // export function formReset() {
