@@ -34,7 +34,7 @@
   display: inline-block;
   position: relative;
   box-sizing: border-box;
-  animation: rotation 5s linear infinite;
+  animation: rotation 10s linear infinite;
 }
 .loader::after {
   content: '';
