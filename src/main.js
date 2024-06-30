@@ -6,11 +6,12 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getImages } from './js/pixabay-api';
 import { imagesTemplate} from './js/render-functions';
 
-const lightbox = new SimpleLightbox('.gallery a', {
-    captions: true,
-    captionsData: 'alt',
-    captionsDelay: 250,
-}).refresh();
+ const lightbox = new SimpleLightbox('.gallery a', {
+        captions: true,
+        captionsData: 'alt',
+        captionsDelay: 250,
+
+ })
    
 export const refs = {
     form: document.querySelector('.form'),
