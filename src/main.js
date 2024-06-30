@@ -39,12 +39,14 @@ refs.form.addEventListener('submit', e => {
             position:'topRight',
         });
         // Завершує обробку події
+        refs.form.reset();
            return;
     }
+       // Очищає вміст галереї перед завантаженням нових зображень
+    refs.gallery.innerHTML = ' ';
         // Показує завантажувач
     showLoader();
-        // Очищає вміст галереї перед завантаженням нових зображень
-    refs.gallery.innerHTML = ' ';
+     
      // Викликаємо функцію, яка отримує зображення з API
     getImages(inputValue)
         .then(data => {
